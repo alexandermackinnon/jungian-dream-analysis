@@ -1,4 +1,4 @@
-# Project Report
+# Jungian Dream Analysis Machine
 
 ## Implementing Jungian Ideas
 
