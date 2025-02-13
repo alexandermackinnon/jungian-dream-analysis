@@ -23,7 +23,7 @@ def index():
                     {"role": "user", "content": f"I had this dream: {prompt}. What does it mean?"}
                 ],
                 temperature=0.8,
-                max_tokens=150
+                max_tokens=2000
             )
             result = response.choices[0].message.content
 

@@ -1,20 +1,18 @@
-# minimal-flask-app
+# Project Report
 
-Minimal code for Flask app making calls to the OpenAI API
+## Implementing Jungian Ideas
 
-```
-# Create virtual environment
-python3 -m venv ./venv
+To be updated.
 
-# Activate your virtual environment
-source venv/bin/activate
+## User Guide for the Web App
 
-# Install the required packages. For example
-pip3 install flask openai python-dotenv
+1. Navigate to [Jungian Dream Analysis Machine](https://jungian-dream-analysis-machine-yagu.onrender.com).
+2. Click the **"Open"** button in the bottom left corner of the screen to reveal the dream input window.
+3. In the text field, enter a vivid description of your dream.
+4. Click **"Analyze"** to submit your dream.
+5. Your dream analysis will appear in the input window below the text field.
+6. A visualization of your dream will be generated and displayed in the background of the page.
 
-# Rename the file .env-bup to .env.
-# Add your OPENAI_API_KEY to the .env file.
+## Insights Gained and Possible Improvements
 
-# Run the app
-python3 app.py
-```
+To be updated.

@@ -2,61 +2,135 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Jungian dream analysis machine</title>
+    <title>Jungian Dream Analysis Machine</title>
     <style>
       body {
         background-image: url("{{ image_url|safe }}");
         background-size: cover;
         background-position: center;
+        background-color: #000;
         font-family: Arial, sans-serif;
         color: #fff;
         margin: 0;
         padding: 0;
         min-height: 100vh;
       }
-      .content {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 20px;
-        margin: 50px auto;
-        max-width: 600px;
-        border-radius: 8px;
+
+      h1,
+      h2 {
+        margin: 0px;
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
       }
+
+      p {
+        margin: 0px;
+        font-size: 14px;
+      }
+
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: flex-end;
+        height: 100vh;
+        padding: 15px;
+      }
+
+      .input-container {
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+        width: 400px;
+        height: auto;
+        max-height: 200px;
+        overflow: auto;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        padding: 30px;
+        border: 1px solid #fff;
+      }
+
+      .analysis {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
       form {
         display: flex;
         flex-direction: column;
+        gap: 15px;
       }
+
       input[type="text"] {
-        padding: 10px;
-        margin-bottom: 10px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 14px;
         border: none;
-        border-radius: 4px;
+        border-bottom: 1px solid #fff;
+        padding: 15px 0px;
       }
-      input[type="submit"] {
-        padding: 10px;
-        border: none;
-        border-radius: 4px;
-        background: #2196f3;
-        color: white;
+
+      input[type="submit"],
+      .toggle-btn {
+        padding: 14px;
+        border: 1px solid #fff;
+        border-radius: 0px;
+        color: #fff;
+        text-transform: uppercase;
+        background: none;
         cursor: pointer;
       }
     </style>
   </head>
   <body>
     <div class="content">
-      <h1>Jungian dream analysis machineI</h1>
-      <form method="post">
-        <input
-          type="text"
-          name="prompt"
-          placeholder="Enter your question"
-          required
-        />
-        <input type="submit" value="Submit" />
-      </form>
-      {% if result %}
-      <h2>Response:</h2>
-      <p>{{ result }}</p>
-      {% endif %}
+      <h1>Jungian Dream Analysis Machine</h1>
+      <button
+        class="toggle-btn"
+        id="toggleButton"
+        onclick="toggleInputContainer()"
+      >
+        Open
+      </button>
+      <div class="input-container" id="inputContainer">
+        <form method="post">
+          <input
+            type="text"
+            name="prompt"
+            placeholder="Talk to me about a dream of yours."
+            required
+          />
+          <input type="submit" value="Analyze" />
+        </form>
+        {% if result %}
+        <div class="analysis">
+          <h2>Analysis:</h2>
+          <p>{{ result }}</p>
+        </div>
+        {% endif %}
+      </div>
     </div>
+
+    <script>
+      function toggleInputContainer() {
+        var container = document.getElementById("inputContainer");
+        var button = document.getElementById("toggleButton");
+        if (
+          container.style.display === "none" ||
+          container.style.display === ""
+        ) {
+          container.style.display = "flex";
+          button.textContent = "Close";
+        } else {
+          container.style.display = "none";
+          button.textContent = "Open";
+        }
+      }
+    </script>
   </body>
 </html>
